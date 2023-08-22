@@ -124,5 +124,5 @@ int print_rot(va_list args);
 int identify(char c, va_list);
 int print_hex(unsigned int n, unsigned int c);
 int _putchar (char c);
-int print_oct(unsigned int n);
+int print_octal(va_list args);
 #endif

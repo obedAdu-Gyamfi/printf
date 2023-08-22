@@ -138,3 +138,56 @@ int print_X(va_list X)
 {
 	return (print_hex(va_arg(X,unsigned int),1));
 }
+
+/**
+ * print_octal - Prints the octal number of an
+ * unsigned integer.
+ * @args: list of unsigned integers.
+ * Return: int
+ */
+int print_octal(va_list args)
+{
+	unsigned int len, p, digit, number;
+	unsigned int j, count = 0, n;
+
+	n = va_arg(args, int);
+
+	if (n != 0)
+	{
+		number = n;
+		len = 0;
+
+		while (number != 0)
+		{
+			number /= 8;
+			len++;
+		}
+		p = 1;
+		for (j = 1; j <= len - 1; j++)
+		{
+			p *= 8;
+		}
+		for (j = 1; j <= len; j++)
+		{
+			digit = n / p;
+			if (n > 8)
+			{
+				_putchar(digit % 8 + '0');
+			}
+			else
+			{
+				_putchar(digit + '0');
+			}
+			count++;
+			n -= digit * p;
+			p /= 8;
+		}
+	}
+	else
+	{
+		_putchar('0');
+		return (1);
+	}
+	return (count);
+}
+
