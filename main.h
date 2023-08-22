@@ -49,22 +49,6 @@ int _printf(const char *format, ...);
 /*int handle_print(const char *fmt, int *i, va_list list, char buffer[], int flags, int width, int precision, int size);*/
 
 
-/**Char and String functions
-int print_char(va_list types, char buffer[], int flags, int width, int precision, int size);
-int print_string(va_list types, char buffer[], int flags, int width, int precision, int size);
-int print_percent(va_list types, char buffer[], int flags, int width, int precision, int size);
-
-Numbers functions
-int print_int(va_list types, char buffer[], int flags, int width, int precision, int size);
-int print_binary(va_list types, char buffer[], int flags, int width, int precision, int size);
-int print_unsigned(va_list types, char buffer[], int flags, int width, int precision, int size);
-int print_octal(va_list types, char buffer[], int flags, int width, int precision, int size);
-int print_hexa(va_list types, char map_to[], char buffer[], int flags, char flag_char, int width, int precision, int size);
-int print_hexadecimal(va_list types, char buffer[], int flags, int width, int precision, int size);
-int print_hexa_upper(va_list types, char buffer[], int flags, int width, int precision, int size);
-**/
-/**Unprintable character functions (S specifier)**/
-int print_unprintable(va_list args, char buffer[]);
 
 /**Memory address functions (p specifier)**/
 int print_pointer(va_list args, char buffer[], int flags);
@@ -78,17 +62,17 @@ int get_size(const char *format, int *i);
 /**Function for reverse string**/
 int print_reverse(va_list args);
 
-/**
-Function for Rot13 string
-int print_rot13(va_list types, char buffer[], int flags, int width, int precision, int size);
 
-Functions for write function
+/**
+ * Function for Rot13 string
+ * int print_rot13(va_list types, char buffer[], int flags, int width, int precision, int size);
+*/
+/*Functions for write function*/
 int write_char(char c, char buffer[], int flags, int width, int precision, int size);
 int write_number(int is_positive, int index, char buffer[], int flags, int width, int precision, int size);
 int write_num(int index, char buffer[], int flags, int width, int precision, int length, char padd, char extra_c);
 int write_unsigned(int is_negative, int index, char buffer[], int flags, int width, int precision, int size);
 int write_pointer(char buffer[], int index, int length, int width, int flags, char padd, char extra_c, int padd_start);
-**/
 
 
 /**Other functions**/
