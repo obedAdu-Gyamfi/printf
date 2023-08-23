@@ -12,7 +12,7 @@
 
 long int convert_size_u();
 
-int print_octal(va_list args, char buffer[], int flags, int precision, int size)
+int print_octal(va_list args, char buffer[], int flags, int width, int precision, int size)
 {
 	int i = BUFFdSIZE - 2;
 	unsigned long int num = va_arg(args, unsigned long int);
@@ -37,7 +37,7 @@ int print_octal(va_list args, char buffer[], int flags, int precision, int size)
 
 	i++;
 
-	return (write_u(0, i, buffer, flags, precision, size));
+	return (write_u(0, i, buffer, flags, width,  precision, size));
 }
 
 /**

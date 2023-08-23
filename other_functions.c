@@ -10,7 +10,7 @@
  * Return: The number of characters printed
  */
 
-int print_pointer(va_list types, char buffer[], int flags)
+int print_pointer(va_list args, char buffer[], int flags, int width)
 {
 	char extra_c = 0, padd = ' ';
 	int index = BUFFdSIZE - 2;
@@ -18,7 +18,7 @@ int print_pointer(va_list types, char buffer[], int flags)
 	int padd_start = 1;
 	unsigned long num_addrs;
 	char map_to[] = "0123456789abcdef";
-	void *addrs = va_arg(types, void *);
+	void *addrs = va_arg(args, void *);
 
 
 	if (addrs == NULL)
@@ -44,7 +44,7 @@ int print_pointer(va_list types, char buffer[], int flags)
 
 	index++;
 
-	return (write_pointer(buffer, index, length, flags, padd, extra_c, padd_start));
+	return (write_pointer(buffer, index, length, flags, width, padd, extra_c, padd_start));
 }
 
 /**

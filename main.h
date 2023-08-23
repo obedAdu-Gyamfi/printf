@@ -28,13 +28,12 @@
  * @fmt: The character format
  * @fn: The associated function of the format
  */
-/*
+
 struct fmt
 {
 	char fmt;
 	int (*fn)(va_list, char[], int, int, int, int);
 };
-*/
 /**
  * typedef struct fmt fmt_fn - Typedef Struct for character format
  *
@@ -67,7 +66,7 @@ int print_hexa_upper(va_list types, char buffer[], int flags, int width, int pre
 int print_unprintable(va_list args, char buffer[]);
 
 /**Memory address functions (p specifier)**/
-int print_pointer(va_list args, char buffer[], int flags);
+int print_pointer(va_list args, char buffer[], int flags, int width);
 
 /**Function for other specifiers**/
 int get_flags(const char *format, int *i);
@@ -81,14 +80,15 @@ int print_reverse(va_list args);
 /**
 Function for Rot13 string
 int print_rot13(va_list types, char buffer[], int flags, int width, int precision, int size);
+**/
 
-Functions for write function
+/**Functions for write function**/
+
 int write_char(char c, char buffer[], int flags, int width, int precision, int size);
 int write_number(int is_positive, int index, char buffer[], int flags, int width, int precision, int size);
 int write_num(int index, char buffer[], int flags, int width, int precision, int length, char padd, char extra_c);
-int write_unsigned(int is_negative, int index, char buffer[], int flags, int width, int precision, int size);
+int write_u(int is_negative, int index, char buffer[], int flags, int width, int precision, int size);
 int write_pointer(char buffer[], int index, int length, int width, int flags, char padd, char extra_c, int padd_start);
-**/
 
 
 /**Other functions**/
@@ -124,5 +124,5 @@ int print_rot(va_list args);
 int identify(char c, va_list);
 int print_hex(unsigned int n, unsigned int c);
 int _putchar (char c);
-int print_oct(unsigned int n);
+int print_octal(unsigned int n);
 #endif
