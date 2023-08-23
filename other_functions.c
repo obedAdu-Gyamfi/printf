@@ -10,12 +10,11 @@
  * Return: The number of characters printed
  */
 
-int print_pointer(va_list args, char buffer[], int flags, int width)
+int print_pointer(va_list types, char buffer[])
 {
-	char extra_c = 0, padd = ' ';
+	/*char extra_c = 0, padd = ' ';*/
 	int index = BUFFdSIZE - 2;
 	int length = 2;
-	int padd_start = 1;
 	unsigned long num_addrs;
 	char map_to[] = "0123456789abcdef";
 	void *addrs = va_arg(args, void *);
@@ -34,17 +33,20 @@ int print_pointer(va_list args, char buffer[], int flags, int width)
 		length++;
 	}
 
+	/*
 	if ((flags & ZERO) && !(flags & MINUS))
 		padd = '0';
-
+	*/
+	/*
 	if (flags & PLUS)
 		extra_c = '+', length++;
 	else if (flags & SPACE)
 		extra_c = ' ', length++;
 
+	*/
 	index++;
 
-	return (write_pointer(buffer, index, length, flags, width, padd, extra_c, padd_start));
+	return (length);
 }
 
 /**
@@ -91,6 +93,7 @@ int print_reverse(va_list args)
 {
 	char *str = va_arg(args, char *);
 	int i, count = 0;
+	char z;
 
 	if (str == NULL)
 	{
@@ -101,12 +104,13 @@ int print_reverse(va_list args)
 	{
 		for (i = i - 1; i >= 0; i--)
 		{
-			char z = str[i];
+			z = str[i];
 
 			write(1, &z, 1);
 			count++;
 		}
 	}
+	_putchar('\n');
 
 	return (count);
 }

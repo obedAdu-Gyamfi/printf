@@ -1,7 +1,6 @@
 #include <stddef.h>
 #include "main.h"
 #include <stdarg.h>
-
 /**
  * print_int - Entry point.
  * Description: This is a function that prints an integer
@@ -16,7 +15,6 @@ int print_int(va_list args)
 	int number;
 
 	n = va_arg(args, int);
-
 	if (n != 0)
 	{
 		if (n < 0)
@@ -25,7 +23,6 @@ int print_int(va_list args)
 			count++;
 		}
 		number = n;
-
 		while (number != 0)
 		{
 			number /= 10;
@@ -71,7 +68,7 @@ int print_int(va_list args)
 int print_hex(unsigned int n, unsigned int c)
 {
 	unsigned int len, p;
-	unsigned int digit,j, number;
+	unsigned int digit, j, number;
 	int count = 0;
 	char d;
 
@@ -81,11 +78,11 @@ int print_hex(unsigned int n, unsigned int c)
 		len = 0;
 		if (c)
 		{
-			d = 'A'-':';
+			d = 'A' - ':';
 		}
 		else
 		{
-			d = 'a'-':';
+			d = 'a' - ':';
 		}
 		while (number != 0)
 		{
@@ -97,7 +94,7 @@ int print_hex(unsigned int n, unsigned int c)
 		{
 			p *= 16;
 		}
-		for (j = 1; j <= len; j ++)
+		for (j = 1; j <= len; j++)
 		{
 			digit = n / p;
 			if (digit < 10)
@@ -127,7 +124,7 @@ int print_hex(unsigned int n, unsigned int c)
  */
 int print_x(va_list x)
 {
-	return (print_hex(va_arg(x, unsigned int),0));
+	return (print_hex(va_arg(x, unsigned int), 0));
 }
 /**
  * print_X - Prints Upper case
@@ -136,5 +133,56 @@ int print_x(va_list x)
  */
 int print_X(va_list X)
 {
-	return (print_hex(va_arg(X,unsigned int),1));
+	return (print_hex(va_arg(X, unsigned int), 1));
+}
+
+/**
+ * print_octal - Prints the octal number of an
+ * unsigned integer.
+ * @args: list of unsigned integers.
+ * Return: int
+ */
+int print_octal(va_list args)
+{
+	unsigned int len, p, digit, number;
+	unsigned int j, count = 0, n;
+
+	n = va_arg(args, int);
+	if (n != 0)
+	{
+		number = n;
+		len = 0;
+
+		while (number != 0)
+		{
+			number /= 8;
+			len++;
+		}
+		p = 1;
+		for (j = 1; j <= len - 1; j++)
+		{
+			p *= 8;
+		}
+		for (j = 1; j <= len; j++)
+		{
+			digit = n / p;
+			if (n > 8)
+			{
+				_putchar(digit % 8 + '0');
+			}
+			else
+			{
+				_putchar(digit + '0');
+			}
+			count++;
+			n -= digit * p;
+			p /= 8;
+		}
+	}
+	else
+	{
+		_putchar('0');
+		return (1);
+	}
+	return (count);
 }

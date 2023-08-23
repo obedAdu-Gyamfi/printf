@@ -22,6 +22,7 @@ int identify(char c, va_list args)
 		{"i", print_int},
 		{"b", print_ui_b},
 		{"u", print_unsigned},
+		{"o", print_octal},
 		{"x", print_x},
 		{"X", print_X},
 		{"R", print_rot},
