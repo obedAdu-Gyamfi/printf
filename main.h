@@ -17,41 +17,15 @@
 #define FLAG_LEFT (1 << 0)
 #define FLAG_ZERO (1 << 1)
 
-/**Sizes**/
+/*Sizes*/
 #define LONG 2
 #define SHORT 1
 
-
-/**
- * struct fmt - Struct for character formats
- *
- * @fmt: The character format
- * @fn: The associated function of the format
- */
-/*
-struct fmt
-{
-	char fmt;
-	int (*fn)(va_list, char[], int, int, int, int);
-};
-*/
-/**
- * typedef struct fmt fmt_fn - Typedef Struct for character format
- *
- * @fmt: The character format
- * @fmt_fn: The associated function of the format
- */
-
-/*typedef struct fmt fmt_fn;*/
-
 /**Prototypes**/
 int _printf(const char *format, ...);
-/*int handle_print(const char *fmt, int *i, va_list list, char buffer[], int flags, int width, int precision, int size);*/
-
-
 
 /**Memory address functions (p specifier)**/
-int print_pointer(va_list args, char buffer[], int flags);
+int print_pointer(va_list args, char buffer[]);
 
 /**Function for other specifiers**/
 int get_flags(const char *format, int *i);
@@ -63,25 +37,12 @@ int get_size(const char *format, int *i);
 int print_reverse(va_list args);
 
 
-/**
- * Function for Rot13 string
- * int print_rot13(va_list types, char buffer[], int flags, int width, int precision, int size);
-*/
-/*Functions for write function*/
-int write_char(char c, char buffer[], int flags, int width, int precision, int size);
-int write_number(int is_positive, int index, char buffer[], int flags, int width, int precision, int size);
-int write_num(int index, char buffer[], int flags, int width, int precision, int length, char padd, char extra_c);
-int write_unsigned(int is_negative, int index, char buffer[], int flags, int width, int precision, int size);
-int write_pointer(char buffer[], int index, int length, int width, int flags, char padd, char extra_c, int padd_start);
-
-
 /**Other functions**/
 int is_printable(char i);
 int append_hexa(char i, char j[], int k);
 int is_digit(char x);
 long int convert_size_number(long int number, int size);
 long int convert_size_u(unsigned long int num, int size);
-
 
 /**
  * struct d_type - structure of my functions.

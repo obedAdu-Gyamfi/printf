@@ -25,7 +25,6 @@ int identify(char c, va_list args)
 		{"o", print_octal},
 		{"x", print_x},
 		{"X", print_X},
-		{"r", print_reverse},
 		{"R", print_rot},
 		{NULL, NULL}
 	};
