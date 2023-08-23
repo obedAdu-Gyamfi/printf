@@ -9,7 +9,7 @@
  * Return: The number of characters printed
  */
 
-int print_pointer(va_list types, char buffer[])
+int print_pointer(va_list args, char buffer[])
 {
 	/*char extra_c = 0, padd = ' ';*/
 	int index = BUFFdSIZE - 2;
@@ -57,10 +57,10 @@ int print_pointer(va_list types, char buffer[])
  * Return: The number of characters printed
  */
 
-int print_unprintable(va_list types, char buffer[])
+int print_unprintable(va_list args, char buffer[])
 {
 	int i = 0, offset = 0;
-	char *str = va_arg(types, char *);
+	char *str = va_arg(args, char *);
 
 	if (str == NULL)
 		return (write(1, "(null)", 6));
