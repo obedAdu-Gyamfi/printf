@@ -5,7 +5,6 @@
  *
  * @types: List of arguments
  * @buffer: Buffer array
- * @flags: included flags
  *
  * Return: The number of characters printed
  */
@@ -33,17 +32,17 @@ int print_pointer(va_list types, char buffer[])
 		length++;
 	}
 
-	/*
-	if ((flags & ZERO) && !(flags & MINUS))
-		padd = '0';
-	*/
-	/*
-	if (flags & PLUS)
-		extra_c = '+', length++;
-	else if (flags & SPACE)
-		extra_c = ' ', length++;
-
-	*/
+	/**
+	* if ((flags & ZERO) && !(flags & MINUS))
+	*	padd = '0';
+	*
+	*
+	* if (flags & PLUS)
+	*	extra_c = '+', length++;
+	* else if (flags & SPACE)
+	*	extra_c = ' ', length++;
+	*
+	**/
 	index++;
 
 	return (length);
